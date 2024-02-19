@@ -11,23 +11,40 @@
             padding: 0;
             background-color: #f0f0f0;
             color: #333;
+            margin-left: 10%;
+            margin-right: 10%;
         }
 
         header {
-            background-color: #007bff;
-            color: #ffffff;
-            padding: 10px 20px;
-            text-align: center;
+            background-color: #00008B; /* Deep blue color */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 10%;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        .left-nav a {
+            font-size: 24px;
         }
 
         .container {
             display: flex;
             align-items: flex-start;
-            margin: 20px;
+            margin-top: 20px;
         }
 
         .profile-content, .profile-image {
-            flex: 1; /* This ensures both the image and content take up equal space */
+            flex: 1;
         }
 
         .profile-image img {
@@ -37,7 +54,7 @@
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             color: #333;
         }
 
@@ -54,17 +71,35 @@
 </head>
 <body>
     <header>
-        <h1>Snigdha Samantaray</h1>
+        <div class="left-nav">
+            <a href="#home">Home</a>
+        </div>
+        <div class="right-nav">
+            <a href="#research">Research</a>
+            <a href="#contact">Contact</a>
+            <a href="#work-experience">Work Experience</a>
+        </div>
     </header>
     <div class="container">
         <div class="profile-image">
+            <!-- Replace 'path_to_image' with the actual image path -->
             <img src="/images/profile-picture.jpg" alt="Snigdha Samantaray">
         </div>
         <div class="profile-content">
+            <!-- Add the rest of your content here -->
+            <h1>Snigdha Samantaray</h1>
             <p>Welcome to my webpage! My name is Snigdha Samantaray, and I'm currently pursuing a Ph.D. in Meteorology and Physical Oceanography at the <a href="https://www.earth.miami.edu/">Rosenstiel School of Marine, Atmospheric, and Earth Science</a>, University of Miami. My research realm is atmospheric sciences with a keen focus on the dynamics of moist convection in tropical weather.</p>
 
-            <!-- Include the rest of your introduction content here -->
+            <p>Currently, as part of my PhD, I am working with my advisor, <a href="https://scholar.google.com/citations?user=BFinK4UAAAAJ&hl=en">Brian Mapes</a>, to understand the moisture dynamics of Water Vapor Lakes in the Western Indian Ocean and their regional impacts on African Rainfall. We identify these events by a dynamical distinctive persistently precipitating high-column water vapor features over the ocean.</p>
+    
+            <p>Previously, I earned a BS-MS degree from the <a href="https://www.iiserpune.ac.in/">Indian Institute of Science Education and Research</a> in Pune, specializing in Earth and Climate Sciences. During this time, I worked with <a href="https://scholar.google.com/citations?user=OBB5qd8AAAAJ&hl=en">Suhas Ettammal</a> on satellite data analysis to probe into the entrainment rates of tropical deep convective clouds—a critical factor for understanding convection's vertical and thermodynamic roles in climate models.</p>
+        
+            <p>My research interests are broad, spanning atmospheric moist-dynamical processes, Convective Self-Aggregation, tropical weather phenomena, and the intricate scale interactions within the atmosphere.</p>
+
+            <p>You can find more details below about my work and research journey.</p>
+
         </div>
     </div>
+    <!-- Add other sections here -->
 </body>
 </html>
