@@ -7,123 +7,132 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5dc; /* Warm beige background */
-            color: #333;
             margin: 0;
             padding: 0;
+            background-color: #f5f5dc;
         }
-    
-        .header-title {
-            background-color: #333; /* Background color for the title */
-            text-align: center;
+
+        .header-image {
+            position: relative;
+            height: 66vh; /* 2/3 of the viewport height */
+            background-image: url('images/header-image.jpg');
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .title-box {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
             color: white;
-            padding: 20px 0;
-            margin-bottom: 20px; /* Space below the title */
+            padding: 1em;
+            text-align: center;
+            width: 40%; /* Title box covers 40% of the header image */
         }
-    
-        .header-title h1, .header-title h2 {
+
+        .title-box h1,
+        .title-box h2 {
             margin: 0;
-            padding: 5px 0; /* Padding for title text */
         }
-    
+
         .navbar {
             background-color: #333;
             overflow: hidden;
+            padding: 14px 10%;
             text-align: center;
-            padding: 14px 10%; /* Adjusted padding */
         }
-    
+
         .navbar a {
             display: inline-block;
             color: white;
-            text-align: center;
-            padding: 14px 16px; /* Adjusted padding */
             text-decoration: none;
-            margin: 0; /* Adjusted margin */
+            padding: 14px 16px;
             transition: background-color 0.3s;
         }
-    
+
         .navbar a:hover {
             background-color: #ddd;
             color: black;
         }
-    
-        /* Container for profile image and text */
-        main-content {
+
+        .main-content {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center; /* Center the content */
-            padding: 0 10%; /* Padding on the sides */
+            padding: 1em 10%; /* Padding on the sides */
         }
 
-        .profile-image {
-            flex: 1;
-            max-width: 50%; /* Allocate max 50% of the container width */
-            display: flex;
-            justify-content: flex-end; /* Push the image to the end of the left half */
-            padding-right: 2%; /* Add some padding between the image and the text */
+        .profile-image,
+        .profile-text {
+            flex-basis: 50%; /* Each column takes up 50% of the space */
+            padding: 1em; /* Padding inside the columns */
         }
-    
+
         .profile-image img {
-            width: auto; /* Keep the image's aspect ratio */
-            max-width: 100%; /* Ensure the image is not larger than its container */
-            max-height: 300px; /* Adjust the max height to fit your design */
+            width: 100%;
+            max-width: 300px; /* Maximum width of the profile image */
+            height: auto;
             border-radius: 5px;
         }
-    
-        .profile-text {
-            flex: 1;
-            max-width: 50%; /* Allocate max 50% of the container width */
-            display: flex;
-            justify-content: flex-start; /* Align the text to the start of the right half */
-            padding-left: 2%; /* Add some padding between the image and the text */
+
+        .profile-text p {
+            margin: 0;
+            text-align: left;
         }
-        .profile-text div {
-            max-width: 90%; /* Adjust text width as needed */
-        }
-    
-        @media screen and (max-width: 600px) {
+
+        @media screen and (max-width: 768px) {
+            .header-image {
+                height: 33vh; /* Smaller height on mobile */
+            }
+
+            .title-box {
+                width: 80%; /* Larger title box on mobile */
+            }
+
             .navbar a:not(:first-child) {
                 display: none;
             }
-    
+
             .navbar a.icon {
                 display: block;
                 position: absolute;
                 right: 10px;
                 top: 10px;
             }
-    
+
             .navbar.responsive .icon {
                 position: relative;
             }
-    
+
             .navbar.responsive a {
                 display: block;
                 text-align: left;
             }
-    
+
             .main-content {
                 flex-direction: column;
-                padding: 0;
+                padding: 1em;
             }
-    
-            .profile-image, .profile-text {
-                width: 100%;
-                justify-content: center;
-            }
-    
-            .profile-image img, .profile-text div {
-                max-width: 100%;
+
+            .profile-image,
+            .profile-text {
+                flex-basis: 100%; /* Full width on mobile */
             }
         }
     </style>
 </head>
 
+
 <body>
 
 <div class="header-image">
     <img src="images/header-image.jpg" alt="Header Image" style="width:100%; height:auto;">
+</div>
+
+
+
+<div class="title-background">
+    <h1>Snigdha Samantaray</h1>
+    <h2>PhD Student and Meteorologist</h2>
 </div>
 
 <div class="navbar" id="myNavbar">
@@ -138,11 +147,6 @@
     <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
         &#9776;
     </a>
-</div>
-
-<div class="title-background">
-    <h1>Snigdha Samantaray</h1>
-    <h2>PhD Student and Meteorologist</h2>
 </div>
 
 <div class="main-content">
@@ -162,7 +166,6 @@
     </div>
 </div>
 
-
 <script>
     function toggleNavbar() {
         var navbar = document.getElementById("myNavbar");
@@ -173,7 +176,6 @@
         }
     }
 </script>
-
-
 </body>
 </html>
+
