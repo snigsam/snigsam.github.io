@@ -7,46 +7,27 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f5f5dc;
+            color: #333;
             margin: 0;
             padding: 0;
-            background-color: #f5f5dc; /* Warm beige background */
         }
     
-        .header-image {
-            background-image: url('images/header-image.jpg'); /* Ensure this path is correct */
-            background-size: cover;
-            background-position: center;
-            height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            color: white;
-        }
-    
-        .header-image h1 {
-            margin: 0;
-            font-size: 36px;
-        }
-    
-        .header-image h2 {
-            margin: 10px 0;
-            font-size: 24px;
-        }
-    
+        /* Style for the taskbar */
         .navbar {
             background-color: #333;
             overflow: hidden;
-            text-align: center; /* Center-align the navbar items */
-            padding: 14px 0; /* Padding on top and bottom */
+            font-size: 18pt; /* Increased font size */
+            padding: 10px 0; /* Padding at top and bottom */
         }
     
         .navbar a {
             display: inline-block;
             color: white;
             text-align: center;
-            padding: 14px 5%; /* Increase the horizontal padding for spacing */
+            padding: 14px;
             text-decoration: none;
+            margin: 0 10px; /* Space between taskbar entries */
             transition: background-color 0.3s;
         }
     
@@ -55,64 +36,68 @@
             color: black;
         }
     
-        .container {
-            display: flex;
-            align-items: center; /* Align items vertically */
-            justify-content: center; /* Center items horizontally */
-            gap: 30px; /* Space between image and text */
-            padding: 20px 10%; /* Padding on the sides */
+        /* Responsive navbar dropdown */
+        .navbar .icon {
+            display: none;
         }
     
+        /* Title with background color matching the taskbar */
+        .title-background {
+            background-color: #333; /* Same as navbar */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 24pt;
+        }
+        
+        /* Container styles for profile image and text */
+        .content-container {
+            display: flex;
+            justify-content: space-between; /* Space between the two main sections */
+            padding: 20px; /* Padding around the main content */
+        }
+    
+        /* Profile image styles */
         .profile-image {
-            flex: 0 0 120px; /* Set the flex-basis of the image */
-            text-align: center; /* Center-align the image */
+            width: 50%; /* Half the width of the container */
+            padding-left: 20px; /* Left padding */
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
         }
     
         .profile-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
+            width: auto; /* Maintain the original image aspect ratio */
+            max-width: 100%; /* Max width is the size of the profile-image container */
+            max-height: 200px; /* Adjust the maximum height as needed */
+            border-radius: 5px; /* Rounded corners */
         }
     
-        .profile-content {
-            flex-grow: 1;
-            max-width: calc(50% - 60px); /* Half the container width minus half the gap */
+        /* Profile text styles */
+        .profile-text {
+            width: 50%; /* Half the width of the container */
+            padding-right: 20px; /* Right padding */
+            font-size: 14pt; /* Increased font size for the text */
         }
     
+        /* Responsive design for smaller screens */
         @media (max-width: 768px) {
-            .navbar a:not(:first-child), .navbar a.icon {
-                display: none; /* Hide all items except the first (logo/home) */
+            .header-image {
+                /* Smaller height for the header image on mobile */
             }
     
-            .navbar a.icon {
-                display: block; /* Show the icon */
-                text-align: center;
-                padding: 14px;
-                position: absolute;
-                top: 0;
-                right: 0;
+            .content-container {
+                flex-direction: column; /* Stack the image and text on top of each other */
+                align-items: center; /* Center align the stacked items */
             }
     
-            .navbar.responsive .icon {
-                position: relative; /* The icon's position on active */
+            .profile-image, .profile-text {
+                width: 100%; /* Full width on small screens */
+                padding: 10px 0; /* Padding for small screens */
             }
     
-            .navbar.responsive a {
-                display: block; /* Stack the items vertically */
-                text-align: center;
-            }
-    
-            .container {
-                flex-direction: column;
-                padding: 20px; /* Padding on small screens */
-            }
-    
-            .profile-image, .profile-content {
-                max-width: 100%; /* Full width on small screens */
-            }
-    
-            .profile-content {
-                padding-top: 20px; /* Space between image and text */
+            .profile-image img {
+                max-height: 150px; /* Smaller max height for the image on mobile */
             }
         }
     </style>
@@ -120,13 +105,12 @@
 <body>
 
 <div class="header-image">
-    <h1>Snigdha Samantaray</h1>
-    <h2>PhD Student and Meteorologist</h2>
+    <img src="images/header-image.jpg" alt="Header Image" style="width:100%; height:auto;">
 </div>
 
 <div class="navbar" id="myNavbar">
     <a href="#home">Home</a>
-    <a href="#research.html">Research</a>
+    <a href="research.html">Research</a>
     <a href="#work-experience.html">Work Experience</a>
     <a href="#cv">CV</a>
     <a href="#posts">Posts</a>
@@ -136,6 +120,10 @@
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         &#9776;
     </a>
+</div>
+<div class="title-background">
+    <h1>Snigdha Samantaray</h1>
+    <h2>PhD Student and Meteorologist</h2>
 </div>
 
 <div class="profile-image">
@@ -156,15 +144,16 @@
 
 
 <script>
-function myFunction() {
-    var x = document.getElementById("myNavbar");
-    if (x.className === "navbar") {
-        x.className += " responsive";
-    } else {
-        x.className = "navbar";
+    function toggleNavbar() {
+        var navbar = document.getElementById("myNavbar");
+        if (navbar.className === "navbar") {
+            navbar.className += " responsive";
+        } else {
+            navbar.className = "navbar";
+        }
     }
-}
 </script>
+
 
 </body>
 </html>
