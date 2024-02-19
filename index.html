@@ -7,58 +7,53 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5dc; /* Beige background */
+            background-color: #f5f5dc; /* Warm beige background */
             color: #333;
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #003b46; /* Warm dark teal */
+            background-color: #006666; /* Warm dark blue teal for taskbar */
             color: white;
-            padding: 10px 0;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 10%;
         }
 
         header a {
             color: white;
             text-decoration: none;
             font-size: 18px;
-            margin: 0 10px; /* Space between taskbar entries */
+            padding: 0 15px;
         }
 
         header a:hover {
             text-decoration: underline;
         }
 
-        .left-nav {
-            display: none; /* Hide by default, shown only above the image on smaller screens */
-        }
-
         .container {
             display: flex;
-            align-items: flex-start;
-            padding: 20px 10%;
-            background-color: #d9e4f5; /* Warm blue neutral background */
-        }
-
-        .profile-image {
-            flex: 0 0 40%; /* 40% size of the image container */
-            margin-right: 5%; /* Space between image and text */
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
         .profile-image img {
-            width: 100%;
+            width: 150px; /* Fixed size for the profile image */
             height: auto;
             border-radius: 5px;
+            margin-bottom: 20px;
         }
 
         .profile-content {
-            flex: 0 0 55%; /* Adjust the size of the text container */
+            flex: 1;
+            padding: 0 20px;
         }
 
         .profile-content a {
-            color: #3498db; /* Different shade of blue for links */
+            color: #1e90ff; /* Different shade of blue for hyperlinks */
             text-decoration: none;
         }
 
@@ -67,43 +62,30 @@
         }
 
         @media (max-width: 768px) {
-            header {
-                padding: 10px;
-            }
-
-            .container {
+            header, .container {
                 flex-direction: column;
-                padding: 20px;
+                align-items: center;
             }
 
-            .profile-image, .profile-content {
-                flex: 0 0 auto; /* Reset flex sizing for mobile */
-                width: 100%; /* Full width on smaller screens */
-            }
-
-            .left-nav {
-                display: block;
-                text-align: center;
-                margin-bottom: 20px;
+            header a {
+                padding: 0 8px;
+                font-size: 16px; /* Smaller font size for mobile */
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="right-nav">
-            <a href="#home">Home</a>
-            <a href="#research">Research</a>
-            <a href="#contact">Contact</a>
-            <a href="#work-experience">Work Experience</a>
-        </div>
+        <a href="index.html">Home</a>
+        <nav>
+            <a href="research.html">Research</a>
+            <a href="contact.html">Contact</a>
+            <a href="work-experience.html">Work Experience</a>
+        </nav>
     </header>
-    <div class="left-nav">
-        <a href="#home">Home</a>
-    </div>
     <div class="container">
         <div class="profile-image">
-            <!-- Replace 'path_to_image' with the actual image path -->
+            <!-- Replace 'profile-picture.jpg' with the actual image filename -->
             <img src="images/profile-picture.jpg" alt="Snigdha Samantaray">
         </div>
         <div class="profile-content">
