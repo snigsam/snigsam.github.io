@@ -60,53 +60,62 @@
 
         .main-content {
             display: flex;
+            align-items: flex-start; /* Align the top edges of the children */
+            justify-content: space-around; /* Distributes space around items */
+            overflow: hidden; /* Hide any overflow */
+            height: calc(100vh - 33vh - 60px); /* Adjust height to fill the remaining viewport height */
             padding: 20px 10%;
+            box-sizing: border-box; /* Includes padding in the element's total height */
         }
-
-        .profile-image,
-        .profile-text {
-            flex: 1;
-            padding: 10px;
+    
+        .profile-image {
+            max-width: 45%; /* Adjust width of the profile image */
+            overflow: hidden; /* Hide the overflow to crop the image */
         }
-
+    
         .profile-image img {
-            max-width: 100%; /* Make the image responsive */
-            border-radius: 5px;
+            height: 100%; /* Force the height to match the parent container */
+            width: auto; /* Maintain the aspect ratio */
+            object-fit: cover; /* Cover the area, cropping as needed */
         }
-
-        .profile-text {
-            text-align: left;
-        }
-
+        
         @media screen and (max-width: 768px) {
             .header-image img {
                 height: auto; /* Full image height on smaller screens */
             }
-
-            .main-content {
-                flex-direction: column;
+    
+            .title-box {
+                position: static; /* Align the title box within the normal document flow */
+                width: 100%; /* Title box covers full width */
             }
-
-            .navbar a:not(:first-child), .navbar a.icon {
-                display: none; /* Only show the icon for the dropdown */
+    
+            .title-background {
+                background-color: rgba(0, 0, 0, 0.5); /* Increased transparency */
+                width: 100%; /* Title background covers full width */
+                box-sizing: border-box; /* Includes padding and border in the element's total width and height */
             }
-
+    
+            .navbar {
+                padding: 0; /* Remove padding */
+                margin-top: -1px; /* Align directly under the header */
+            }
+    
             .navbar a.icon {
-                float: right;
                 display: block;
+                text-align: center;
+                padding: 14px;
+                position: static; /* Align the icon within the normal document flow */
+                width: 100%; /* Full width */
             }
-
-            .navbar.responsive {position: relative;}
-            .navbar.responsive a.icon {
-                position: absolute;
-                right: 0;
-                top: 0;
+    
+            .navbar.responsive .icon {
+                position: relative; /* The icon's position on active */
             }
-            
+    
             .navbar.responsive a {
-                float: none;
+                text-align: center;
+                width: 100%; /* Full width */
                 display: block;
-                text-align: left;
             }
         }
     </style>
