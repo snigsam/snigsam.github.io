@@ -7,27 +7,39 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5dc;
+            background-color: #f5f5dc; /* Warm beige background */
             color: #333;
             margin: 0;
             padding: 0;
         }
     
-        /* Style for the taskbar */
+        .header-title {
+            background-color: #333; /* Background color for the title */
+            text-align: center;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 20px; /* Space below the title */
+        }
+    
+        .header-title h1, .header-title h2 {
+            margin: 0;
+            padding: 5px 0; /* Padding for title text */
+        }
+    
         .navbar {
             background-color: #333;
             overflow: hidden;
-            font-size: 18pt; /* Increased font size */
-            padding: 10px 0; /* Padding at top and bottom */
+            text-align: center;
+            padding: 14px 10%; /* Adjusted padding */
         }
     
         .navbar a {
             display: inline-block;
             color: white;
             text-align: center;
-            padding: 14px;
+            padding: 14px 16px; /* Adjusted padding */
             text-decoration: none;
-            margin: 0 10px; /* Space between taskbar entries */
+            margin: 0; /* Adjusted margin */
             transition: background-color 0.3s;
         }
     
@@ -36,68 +48,68 @@
             color: black;
         }
     
-        /* Responsive navbar dropdown */
-        .navbar .icon {
-            display: none;
-        }
-    
-        /* Title with background color matching the taskbar */
-        .title-background {
-            background-color: #333; /* Same as navbar */
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 24pt;
-        }
-        
-        /* Container styles for profile image and text */
-        .content-container {
+        /* Container for profile image and text */
+        .main-content {
             display: flex;
-            justify-content: space-between; /* Space between the two main sections */
-            padding: 20px; /* Padding around the main content */
+            justify-content: space-between; /* Space between the image and text */
+            padding: 0 10%; /* Padding on the sides */
         }
     
-        /* Profile image styles */
         .profile-image {
-            width: 50%; /* Half the width of the container */
-            padding-left: 20px; /* Left padding */
+            width: 50%; /* Half the width for the profile image */
             display: flex;
-            justify-content: center; /* Center content horizontally */
-            align-items: center; /* Center content vertically */
+            justify-content: flex-end; /* Align image to the right side of the left half */
         }
     
         .profile-image img {
-            width: auto; /* Maintain the original image aspect ratio */
-            max-width: 100%; /* Max width is the size of the profile-image container */
-            max-height: 200px; /* Adjust the maximum height as needed */
-            border-radius: 5px; /* Rounded corners */
+            max-width: 90%; /* Adjust image width as needed */
+            height: auto;
+            border-radius: 5px;
         }
     
-        /* Profile text styles */
         .profile-text {
-            width: 50%; /* Half the width of the container */
-            padding-right: 20px; /* Right padding */
-            font-size: 14pt; /* Increased font size for the text */
+            width: 50%; /* Half the width for the text */
+            display: flex;
+            justify-content: flex-start; /* Align text to the left side of the right half */
         }
     
-        /* Responsive design for smaller screens */
-        @media (max-width: 768px) {
-            .header-image {
-                /* Smaller height for the header image on mobile */
+        .profile-text div {
+            max-width: 90%; /* Adjust text width as needed */
+        }
+    
+        @media screen and (max-width: 600px) {
+            .navbar a:not(:first-child) {
+                display: none;
             }
     
-            .content-container {
-                flex-direction: column; /* Stack the image and text on top of each other */
-                align-items: center; /* Center align the stacked items */
+            .navbar a.icon {
+                display: block;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+            }
+    
+            .navbar.responsive .icon {
+                position: relative;
+            }
+    
+            .navbar.responsive a {
+                display: block;
+                text-align: left;
+            }
+    
+            .main-content {
+                flex-direction: column;
+                padding: 0;
             }
     
             .profile-image, .profile-text {
-                width: 100%; /* Full width on small screens */
-                padding: 10px 0; /* Padding for small screens */
+                width: 100%;
+                justify-content: center;
             }
     
-            .profile-image img {
-                max-height: 150px; /* Smaller max height for the image on mobile */
+            .profile-image img, .profile-text div {
+                max-width: 100%;
             }
         }
     </style>
