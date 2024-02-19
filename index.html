@@ -13,97 +13,129 @@
             padding: 0;
         }
 
-        header {
+        .navbar {
             background-color: #006666; /* Warm dark blue teal for taskbar */
-            color: white;
-            padding: 10px 12.5%; /* Equal left and right margins (100% - 75%)/2 */
+            overflow: hidden;
         }
 
-        header a {
+        .navbar a {
+            float: left;
+            display: block;
             color: white;
+            text-align: center;
+            padding: 14px 16px;
             text-decoration: none;
-            font-size: 18px;
-            margin: 0 15px; /* Space between taskbar entries */
+            font-size: 17px;
         }
 
-        header a:hover {
-            text-decoration: underline;
+        .navbar a.right {
+            float: right;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar a:not(:first-child) {display: none;}
+            .navbar a.icon {
+                float: right;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar.responsive {position: relative;}
+            .navbar.responsive a.icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .navbar.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
         }
 
         .container {
             display: flex;
             flex-wrap: wrap;
-            padding: 20px 12.5%; /* Equal left and right margins (100% - 75%)/2 */
-            justify-content: center;
+            padding: 20px;
+        }
+
+        .profile-image {
+            flex: 0 0 200px; /* Image width */
+            margin-right: 20px; /* Space between image and text */
         }
 
         .profile-image img {
-            width: 300px; /* Adjusted size for the profile image */
+            width: 100%;
+            max-width: 200px;
             height: auto;
             border-radius: 5px;
-            margin-bottom: 20px;
         }
 
         .profile-content {
             flex: 1;
-            padding-left: 12.5%; /* Starting from 3/8 of the page width */
-        }
-
-        .profile-content a {
-            color: #1e90ff; /* Different shade of blue for hyperlinks */
-            text-decoration: none;
-        }
-
-        .profile-content a:hover {
-            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            header, .container {
-                padding: 10px;
+            .container {
+                flex-direction: column;
             }
 
-            .profile-image img {
-                width: 100%; /* Full width on small screens */
-            }
-
-            .profile-content {
-                padding-left: 0; /* Align text to the left on small screens */
-            }
-
-            header a {
-                font-size: 16px; /* Smaller font size for mobile */
+            .profile-image, .profile-content {
+                flex: 1 1 auto;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <a href="index.html" style="margin-right: auto;">Home</a> <!-- Home aligned to the left -->
-        <nav style="margin-left: auto;">
-            <a href="research.html">Research</a>
-            <a href="contact.html">Contact</a>
-            <a href="work-experience.html">Work Experience</a>
-        </nav>
-    </header>
-    <div class="container">
-        <div class="profile-image">
-            <!-- Replace 'profile-picture.jpg' with the actual image filename -->
-            <img src="images/profile-picture.jpg" alt="Snigdha Samantaray">
-        </div>
-        <div class="profile-content">
-            <h1>Snigdha Samantaray</h1>
-            <p>Welcome to my webpage! My name is Snigdha Samantaray, and I'm currently pursuing a Ph.D. in Meteorology and Physical Oceanography at the <a href="https://www.earth.miami.edu/">Rosenstiel School of Marine, Atmospheric, and Earth Science</a>, University of Miami. My research realm is atmospheric sciences with a keen focus on the dynamics of moist convection in tropical weather.</p>
 
-            <p>Currently, as part of my PhD, I am working with my advisor, <a href="https://scholar.google.com/citations?user=BFinK4UAAAAJ&hl=en">Brian Mapes</a>, to understand the moisture dynamics of Water Vapor Lakes in the Western Indian Ocean and their regional impacts on African Rainfall. We identify these events by a dynamical distinctive persistently precipitating high-column water vapor features over the ocean.</p>
+<div class="navbar" id="myNavbar">
+    <a href="#home">Home</a>
+    <a href="#research" class="right">Research</a>
+    <a href="#contact" class="right">Contact</a>
+    <a href="#work-experience" class="right">Work Experience</a>
+    <a href="javascript:void(0);" class="icon right" onclick="myFunction()">
+        &#9776;
+    </a>
+</div>
 
-            <p>Previously, I earned a BS-MS degree from the <a href="https://www.iiserpune.ac.in/">Indian Institute of Science Education and Research</a> in Pune, specializing in Earth and Climate Sciences. During this time, I worked with <a href="https://scholar.google.com/citations?user=OBB5qd8AAAAJ&hl=en">Suhas Ettammal</a> on satellite data analysis to probe into the entrainment rates of tropical deep convective clouds—a critical factor for understanding convection's vertical and thermodynamic roles in climate models.</p>
-
-            <p>My research interests are broad, spanning atmospheric moist-dynamical processes, Convective Self-Aggregation, tropical weather phenomena, and the intricate scale interactions within the atmosphere.</p>
-
-            <p>You can find more details below about my work and research journey.</p>
-        </div>
+<div class="container">
+    <div class="profile-image">
+        <img src="images/profile-picture.jpg" alt="Snigdha Samantaray">
     </div>
-    <!-- Add other sections here -->
+    <div class="profile-content">
+        <p>Welcome to my webpage! My name is Snigdha Samantaray, and I'm currently pursuing a Ph.D. in Meteorology and Physical Oceanography at the <a href="https://www.earth.miami.edu/">Rosenstiel School of Marine, Atmospheric, and Earth Science</a>, University of Miami. My research realm is atmospheric sciences with a keen focus on the dynamics of moist convection in tropical weather.</p>
+
+        <p>Currently, as part of my PhD, I am working with my advisor, <a href="https://scholar.google.com/citations?user=BFinK4UAAAAJ&hl=en">Brian Mapes</a>, to understand the moisture dynamics of Water Vapor Lakes in the Western Indian Ocean and their regional impacts on African Rainfall. We identify these events by a dynamical distinctive persistently precipitating high-column water vapor features over the ocean.</p>
+
+        <p>Previously, I earned a BS-MS degree from the <a href="https://www.iiserpune.ac.in/">Indian Institute of Science Education and Research</a> in Pune, specializing in Earth and Climate Sciences. During this time, I worked with <a href="https://scholar.google.com/citations?user=OBB5qd8AAAAJ&hl=en">Suhas Ettammal</a> on satellite data analysis to probe into the entrainment rates of tropical deep convective clouds—a critical factor for understanding convection's vertical and thermodynamic roles in climate models.</p>
+
+        <p>My research interests are broad, spanning atmospheric moist-dynamical processes, Convective Self-Aggregation, tropical weather phenomena, and the intricate scale interactions within the atmosphere.</p>
+
+        <p>You can find more details below about my work and research journey.</p><!-- Your content here -->
+    </div>
+</div>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myNavbar");
+    if (x.className === "navbar") {
+        x.className += " responsive";
+    } else {
+        x.className = "navbar";
+    }
+}
+</script>
+
 </body>
 </html>
