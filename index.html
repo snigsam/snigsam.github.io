@@ -49,30 +49,35 @@
         }
     
         /* Container for profile image and text */
-        .main-content {
+        main-content {
             display: flex;
-            justify-content: space-between; /* Space between the image and text */
+            flex-wrap: wrap;
+            justify-content: center; /* Center the content */
             padding: 0 10%; /* Padding on the sides */
         }
-    
+
         .profile-image {
-            width: 50%; /* Half the width for the profile image */
+            flex: 1;
+            max-width: 50%; /* Allocate max 50% of the container width */
             display: flex;
-            justify-content: flex-end; /* Align image to the right side of the left half */
+            justify-content: flex-end; /* Push the image to the end of the left half */
+            padding-right: 2%; /* Add some padding between the image and the text */
         }
     
         .profile-image img {
-            max-width: 90%; /* Adjust image width as needed */
-            height: auto;
+            width: auto; /* Keep the image's aspect ratio */
+            max-width: 100%; /* Ensure the image is not larger than its container */
+            max-height: 300px; /* Adjust the max height to fit your design */
             border-radius: 5px;
         }
     
         .profile-text {
-            width: 50%; /* Half the width for the text */
+            flex: 1;
+            max-width: 50%; /* Allocate max 50% of the container width */
             display: flex;
-            justify-content: flex-start; /* Align text to the left side of the right half */
+            justify-content: flex-start; /* Align the text to the start of the right half */
+            padding-left: 2%; /* Add some padding between the image and the text */
         }
-    
         .profile-text div {
             max-width: 90%; /* Adjust text width as needed */
         }
@@ -114,6 +119,7 @@
         }
     </style>
 </head>
+
 <body>
 
 <div class="header-image">
@@ -121,27 +127,29 @@
 </div>
 
 <div class="navbar" id="myNavbar">
-    <a href="#home">Home</a>
+    <a href="index.html">Home</a> <!-- Change these hrefs to link to your actual pages -->
     <a href="research.html">Research</a>
-    <a href="#work-experience.html">Work Experience</a>
-    <a href="#cv">CV</a>
-    <a href="#posts">Posts</a>
-    <a href="#useful-links">Useful Links</a>
-    <a href="#photos">Photos</a>
-    <a href="#contact">Contact</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <a href="work-experience.html">Work Experience</a>
+    <a href="cv.html">CV</a>
+    <a href="posts.html">Posts</a>
+    <a href="useful-links.html">Useful Links</a>
+    <a href="photos.html">Photos</a>
+    <a href="contact.html">Contact</a>
+    <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
         &#9776;
     </a>
 </div>
+
 <div class="title-background">
     <h1>Snigdha Samantaray</h1>
     <h2>PhD Student and Meteorologist</h2>
 </div>
 
-<div class="profile-image">
+<div class="main-content">
+    <div class="profile-image">
         <img src="images/profile-picture.jpg" alt="Snigdha Samantaray">
     </div>
-    <div class="profile-content">
+    <div class="profile-text">
         <p>Welcome to my webpage! My name is Snigdha Samantaray, and I'm currently pursuing a Ph.D. in Meteorology and Physical Oceanography at the <a href="https://www.earth.miami.edu/">Rosenstiel School of Marine, Atmospheric, and Earth Science</a>, University of Miami. My research realm is atmospheric sciences with a keen focus on the dynamics of moist convection in tropical weather.</p>
 
         <p>Currently, as part of my PhD, I am working with my advisor, <a href="https://scholar.google.com/citations?user=BFinK4UAAAAJ&hl=en">Brian Mapes</a>, to understand the moisture dynamics of Water Vapor Lakes in the Western Indian Ocean and their regional impacts on African Rainfall. We identify these events by a dynamical distinctive persistently precipitating high-column water vapor features over the ocean.</p>
