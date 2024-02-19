@@ -3,33 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snigdha Samantaray's Webpage</title>
+    <title>Snigdha Samantaray</title>
+    <title>PhD Student and Meteorologist</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5dc; /* Warm beige background */
-            color: #333;
             margin: 0;
             padding: 0;
+            background-color: #f5f5dc; /* Warm beige background */
+        }
+
+        .header-image {
+            background-image: url('/images/header-image.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #ffffff; /* Text color */
+        }
+
+        .header-image h1 {
+            margin: 0;
+            font-size: 36px; /* Large font size for name */
+        }
+
+        .header-image h2 {
+            margin: 10px 0;
+            font-size: 24px; /* Smaller font size for title */
         }
 
         .navbar {
-            background-color: #006666; /* Warm dark blue teal for taskbar */
+            background-color: #333;
             overflow: hidden;
+            padding: 0 10%; /* Space on the left and right */
         }
 
         .navbar a {
-            float: left;
-            display: block;
+            display: inline-block;
             color: white;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
-            font-size: 17px;
-        }
-
-        .navbar a.right {
-            float: right;
+            transition: background-color 0.3s;
         }
 
         .navbar a:hover {
@@ -37,80 +55,57 @@
             color: black;
         }
 
-        .navbar a.active {
-            background-color: #4CAF50;
-            color: white;
+        .navbar .icon {
+            display: none;
         }
 
         @media screen and (max-width: 600px) {
-            .navbar a:not(:first-child) {display: none;}
+            .navbar a:not(:first-child) {
+                display: none;
+            }
+
             .navbar a.icon {
                 float: right;
                 display: block;
             }
-        }
 
-        @media screen and (max-width: 600px) {
             .navbar.responsive {position: relative;}
-            .navbar.responsive a.icon {
+            .navbar.responsive .icon {
                 position: absolute;
                 right: 0;
                 top: 0;
             }
+
             .navbar.responsive a {
                 float: none;
                 display: block;
                 text-align: left;
             }
         }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
-
-        .profile-image {
-            flex: 0 0 200px; /* Image width */
-            margin-right: 20px; /* Space between image and text */
-        }
-
-        .profile-image img {
-            width: 100%;
-            max-width: 200px;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        .profile-content {
-            flex: 1;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .profile-image, .profile-content {
-                flex: 1 1 auto;
-            }
-        }
     </style>
 </head>
 <body>
 
+<div class="header-image">
+    <h1>Snigdha Samantaray</h1>
+    <h2>PhD Student and Meteorologist</h2>
+</div>
+
 <div class="navbar" id="myNavbar">
     <a href="#home">Home</a>
-    <a href="#research" class="right">Research</a>
-    <a href="#contact" class="right">Contact</a>
-    <a href="#work-experience" class="right">Work Experience</a>
-    <a href="javascript:void(0);" class="icon right" onclick="myFunction()">
+    <a href="#research.html">Research</a>
+    <a href="#work-experience.html">Work Experience</a>
+    <a href="#cv">CV</a>
+    <a href="#posts">Posts</a>
+    <a href="#useful-links">Useful Links</a>
+    <a href="#photos">Photos</a>
+    <a href="#contact">Contact</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         &#9776;
     </a>
 </div>
 
-<div class="container">
-    <div class="profile-image">
+<div class="profile-image">
         <img src="images/profile-picture.jpg" alt="Snigdha Samantaray">
     </div>
     <div class="profile-content">
@@ -125,6 +120,7 @@
         <p>You can find more details below about my work and research journey.</p><!-- Your content here -->
     </div>
 </div>
+
 
 <script>
 function myFunction() {
