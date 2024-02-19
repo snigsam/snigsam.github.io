@@ -16,16 +16,14 @@
         header {
             background-color: #006666; /* Warm dark blue teal for taskbar */
             color: white;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 10%;
+            padding: 10px 12.5%; /* Equal left and right margins (100% - 75%)/2 */
         }
 
         header a {
             color: white;
             text-decoration: none;
             font-size: 18px;
-            padding: 0 15px;
+            margin: 0 15px; /* Space between taskbar entries */
         }
 
         header a:hover {
@@ -35,13 +33,12 @@
         .container {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
+            padding: 20px 12.5%; /* Equal left and right margins (100% - 75%)/2 */
             justify-content: center;
-            padding: 20px;
         }
 
         .profile-image img {
-            width: 150px; /* Fixed size for the profile image */
+            width: 300px; /* Adjusted size for the profile image */
             height: auto;
             border-radius: 5px;
             margin-bottom: 20px;
@@ -49,7 +46,7 @@
 
         .profile-content {
             flex: 1;
-            padding: 0 20px;
+            padding-left: 12.5%; /* Starting from 3/8 of the page width */
         }
 
         .profile-content a {
@@ -63,12 +60,18 @@
 
         @media (max-width: 768px) {
             header, .container {
-                flex-direction: column;
-                align-items: center;
+                padding: 10px;
+            }
+
+            .profile-image img {
+                width: 100%; /* Full width on small screens */
+            }
+
+            .profile-content {
+                padding-left: 0; /* Align text to the left on small screens */
             }
 
             header a {
-                padding: 0 8px;
                 font-size: 16px; /* Smaller font size for mobile */
             }
         }
@@ -76,8 +79,8 @@
 </head>
 <body>
     <header>
-        <a href="index.html">Home</a>
-        <nav>
+        <a href="index.html" style="margin-right: auto;">Home</a> <!-- Home aligned to the left -->
+        <nav style="margin-left: auto;">
             <a href="research.html">Research</a>
             <a href="contact.html">Contact</a>
             <a href="work-experience.html">Work Experience</a>
