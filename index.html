@@ -89,34 +89,57 @@
         /* Adjust the header image and title box for portrait mode */
         @media screen and (max-width: 768px) {
             .header-image {
-                height: 20vh; /* Smaller height for mobile portrait */
+                height: auto; /* Remove fixed height restriction */
+                min-height: 25vh; /* Ensure a minimum height */
+            }
+        
+            .header-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Cover the area, allowing zoom and crop */
             }
         
             .title-box {
-                /* Position the title box inside the header */
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                width: 90%; /* Slightly reduce width for padding */
+                padding: 5px; /* Reduce padding */
+            }
+        
+            .title-background {
+                font-size: 4vw; /* Decrease font size */
+                background-color: rgba(0, 0, 0, 0.7);
+                color: white;
+                padding: 5px; /* Reduce padding */
+                margin: 0; /* Ensure no margin */
+                text-align: center;
+            }
+        
+            /* Navbar adjustments for dropdown */
+            .navbar {
+                background-color: #333;
+                overflow: hidden;
+                padding: 0; /* Remove padding to ensure it touches the header */
+                position: relative;
+                top: 0; /* Position right below the header */
                 width: 100%;
             }
         
-            .title-background {
-                /* Adjust the font size for smaller screens */
-                font-size: 4vw;
-                padding: 1vh 0; /* Use viewport height for padding */
+            .navbar a.icon {
+                display: block; /* Ensure the icon is always displayed */
+                position: absolute;
+                right: 10px;
+                top: 0;
+                padding: 10px;
             }
-        }
         
-        /* Adjust the header image for landscape mode */
-        @media screen and (max-width: 768px) and (orientation: landscape) {
-            .header-image {
-                height: 15vh; /* Even smaller height for mobile landscape */
-            }
-            
-            /* You may want to hide the title box in landscape if it's too intrusive */
-            .title-background {
-                display: none;
+            .navbar.responsive a {
+                display: block; /* Show links in dropdown */
+                width: 100%;
+                text-align: center;
+                padding: 10px 0; /* Adjust padding */
             }
         }
 
