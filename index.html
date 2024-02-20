@@ -84,75 +84,42 @@
     
         /* CSS for Desktops remains unchanged */
 
+        /* ... Other styles ... */
+        
+        /* Adjust the header image and title box for portrait mode */
         @media screen and (max-width: 768px) {
-            /* Mobile-specific Styles */
-            
             .header-image {
-                height: 25vh; /* Adjusted for mobile view */
+                height: 20vh; /* Smaller height for mobile portrait */
             }
         
-            .header-image img {
+            .title-box {
+                /* Position the title box inside the header */
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 width: 100%;
-                height: 100%;
-                object-fit: cover;
             }
         
-            /* Hide the title-background in mobile view and replace it with title in navbar */
+            .title-background {
+                /* Adjust the font size for smaller screens */
+                font-size: 4vw;
+                padding: 1vh 0; /* Use viewport height for padding */
+            }
+        }
+        
+        /* Adjust the header image for landscape mode */
+        @media screen and (max-width: 768px) and (orientation: landscape) {
+            .header-image {
+                height: 15vh; /* Even smaller height for mobile landscape */
+            }
+            
+            /* You may want to hide the title box in landscape if it's too intrusive */
             .title-background {
                 display: none;
             }
-        
-            /* Mobile Navbar styles */
-            .title-navbar-container {
-                display: flex;
-                justify-content: space-between; /* Title on the left, menu icon on the right */
-                align-items: center;
-                background-color: #333; /* Match the navbar color */
-                padding: 10px; /* Adjust padding as needed */
-            }
-        
-            .title-container {
-                display: none; /* Hide the separate title container on mobile */
-            }
-        
-            /* Adjust the navbar for mobile view */
-            .navbar {
-                width: 100%; /* Full width */
-                background-color: #333;
-                padding: 10px 0; /* Adjust padding as needed */
-            }
-        
-            .navbar a.icon {
-                display: block; /* Show the menu icon */
-                position: relative;
-                padding: 14px;
-                margin-left: auto; /* Push the icon to the right */
-            }
-        
-            .navbar.responsive a {
-                display: block; /* Show the links when navbar is responsive */
-                width: 100%;
-                text-align: center;
-                padding: 14px 16px;
-            }
-        
-            /* Ensure the main content is stacked */
-            .main-content {
-                flex-direction: column; /* Stack children vertically */
-                align-items: center; /* Center-align children */
-            }
-        
-            .profile-image,
-            .profile-text {
-                width: 100%; /* Full width for mobile */
-            }
-        
-            .profile-image img {
-                max-width: 100%; /* Full width for the image */
-                height: auto; /* Maintain aspect ratio */
-                margin-bottom: 20px; /* Add space below the image */
-            }
         }
+
     </style>
 </head>
 
