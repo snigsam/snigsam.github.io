@@ -35,22 +35,56 @@
             padding: 0 15%; /* Space on the left and right */
         }
 
+        /* Style for unclicked navbar links */
         .navbar-custom .navbar-nav .nav-link {
-            color: #FBF9F1; /* Off-white text for better contrast */
-            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+            color: #FBF9F1; /* Light text color */
+            background-color: #0D4C92; /* Dark blue background */
         }
         
-        .navbar-custom .navbar-nav .nav-link:hover,
-        .navbar-custom .navbar-nav .active > .nav-link {
-            color:  #FBF9F1;/* Classic Blue text for hover/active state */
-            background-color: #0D4C92; /* Moon Beam for background */
-            transition: background-color 0.3s ease-in-out; /* Smooth transition for background color change */
+        /* Style for hovered navbar links */
+        .navbar-custom .navbar-nav .nav-link:hover {
+            color: #0D4C92; /* Dark blue text color on hover */
+            background-color: #FBF9F1; /* Light background on hover */
         }
+        
+        /* Style for active (clicked) navbar link */
+        .navbar-custom .navbar-nav .nav-link.active {
+            color: #0D4C92; /* Dark blue text for active link */
+            background-color: #E5E1DA; /* Light background for active link */
+        }
+        
+        /* Ensuring that navbar links are equidistant */
+        .navbar-nav {
+            display: flex;
+            width: 100%;
+            justify-content: space-around; /* This will distribute space evenly around items */
+        }
+        
+        /* Style for the search button and form */
+        .navbar .form-inline {
+            display: flex;
+            align-items: center; /* This ensures vertical alignment */
+        }
+        
+        .navbar .form-inline .form-control {
+            margin-right: 0.5em; /* Adjust spacing between input and button */
+        }
+        
+        .navbar .form-inline .btn {
+            background-color: #0D4C92; /* Dark blue background for button */
+            color: #FBF9F1; /* Light text color */
+        }
+        
+        .navbar .form-inline .btn:hover {
+            background-color: #E5E1DA; /* Light background on hover */
+            color: #0D4C92; /* Dark blue text color on hover */
+        }
+
         /* Navbar toggle icon */
-        .navbar-toggler {
-            border: none;
-            background-color: #FBF9F1; /* Lighter color for the toggle icon */
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox=\'0 0 30 30\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath stroke=\'rgba(13, 76, 146, 1)\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' d=\'M4 7h22M4 15h22M4 23h22\'/%3E%3C/svg%3E');
         }
+
        /* Adjustments for responsive behavior */
         @media screen and (max-width: 768px) {
             .header-content {
@@ -71,7 +105,7 @@
             }
 
             .navbar-toggler {
-                background-color: #F0F0F0; /* Light color for the toggle icon */
+                background-color: #0D4C92; /* Light color for the toggle icon */
             }
         }
     </style>
@@ -86,12 +120,12 @@
 </div>
 
 <!-- Bootstrap Navbar -->
-<nav class="navbar navbar-expand-lg navbar-custom">
+<nav class="navbar navbar-custom">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <!-- Nav items go here -->
                 <li class="nav-item active"><a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
@@ -104,9 +138,9 @@
                 <!-- Add more nav items as needed -->
             </ul>
         </div>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="d-flex" onsubmit="return performSearch()">
+            <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </div>
 </nav>
@@ -137,6 +171,48 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function performSearch() {
+        // Get the search input value
+        var searchText = document.getElementById('searchInput').value.toLowerCase();
+        // If searchText is not empty, perform the search
+        if (searchText) {
+            // Get the page content
+            var content = document.body.textContent || document.body.innerText;
+            var matchIndex = content.toLowerCase().indexOf(searchText);
+            
+            // If match found, scroll to it and highlight if desired
+            if (matchIndex >= 0) { 
+                // Scroll to the position of the first match
+                // window.scrollTo(0, matchIndex); // This might not work as expected for complex HTML structures
+
+                // Highlight the searched term. Implementation depends on your needs.
+
+            } else {
+                // If no match found, alert the user
+                alert('No matches found');
+            }
+        }
+        // Prevent the form from submitting traditionally
+        return false;
+    }
+</script>
+<script>
+        // JavaScript to add 'active' class to the clicked navbar link
+        document.addEventListener('DOMContentLoaded', function () {
+            var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    // Remove 'active' class from all links
+                    navLinks.forEach(function (link) {
+                        link.classList.remove('active');
+                    });
+                    // Add 'active' class to the clicked link
+                    this.classList.add('active');
+                });
+            });
+        });
+</script>
 
 </body>
 </html>
