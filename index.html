@@ -176,27 +176,49 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
+    function clearHighlights() {
+        // Remove all previous highlights
+        var highlighted = document.querySelectorAll('.highlight');
+        highlighted.forEach(function(el) {
+            el.outerHTML = el.innerHTML; // Remove the highlight by replacing the element with its content
+        });
+    }
+
     function performSearch() {
         var searchText = document.getElementById('searchInput').value;
         if (searchText) {
+            clearHighlights(); // Clear existing highlights
+
             if (window.find && window.getSelection) {
                 document.designMode = "on";
                 var sel = window.getSelection();
                 sel.collapse(document.body, 0);
-                
+
                 while (window.find(searchText)) {
-                    document.execCommand("HiliteColor", false, "A0E4CB");
+                    document.execCommand("HiliteColor", false, "yellow");
                     sel.collapseToEnd();
                 }
-                
+
                 document.designMode = "off";
+                markHighlights(); // Mark new highlights
             } else {
                 alert('Your browser does not support this search functionality.');
             }
         }
         return false;
     }
+
+    function markHighlights() {
+        // Wrap all highlighted text in a span with a class for later removal
+        var selection = window.getSelection();
+        if (!selection.rangeCount) return;
+        var range = selection.getRangeAt(0);
+        var span = document.createElement('span');
+        span.className = 'highlight';
+        range.surroundContents(span);
+    }
 </script>
+    
 <script>
         // JavaScript to add 'active' class to the clicked navbar link
         document.addEventListener('DOMContentLoaded', function () {
