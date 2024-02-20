@@ -31,6 +31,7 @@
         
         /* Navbar styles */
         .navbar-custom {
+            color: #FBF9F1;
             background-color: #090c2f; /* Dark teal blue */
             justify-content: center; /* Center navbar items */
             padding: 0; /* Remove padding */
@@ -38,16 +39,30 @@
         
         /* Ensuring that navbar links are equidistant and centered */
         .navbar-nav {
+            color: #FBF9F1; /* Light text color */
+            background-color: #0D4C92; /* Dark blue background */
+ 
             display: flex;
             width: 100%;
             justify-content: center; /* Center items */
             flex-wrap: wrap; /* Allow items to wrap if necessary */
         }
-        
+
+        /* Style for hovered navbar links */
+        .navbar-custom .navbar-nav .nav-link:hover {
+            color: #0D4C92; /* Dark blue text color on hover */
+            background-color: #FBF9F1; /* Light background on hover */
+        }
+        /* Style for active (clicked) navbar link */
+        .navbar-custom .navbar-nav .nav-link.active {
+            color: #0D4C92; /* Dark blue text for active link */
+            background-color: #E5E1DA; /* Light background for active link */
+        }
+
         /* Style for the search button and form */
         .navbar .form-inline {
             display: flex;
-            justify-content: flex-end; /* Aligns the search form to the right */
+            justify-content: center; /* Aligns the search form to the right */
             flex-grow: 0; /* Prevents the search form from taking up unnecessary space */
         }
         
@@ -55,8 +70,16 @@
         .navbar .form-inline .form-control,
         .navbar .form-inline .btn {
             margin-left: 0.5em; /* Adjust spacing between navbar items and search input */
+            background-color: #0D4C92; /* Dark blue background for button */
+            color: #FBF9F1; /* Light text color */
+
         }
-        
+
+        .navbar .form-inline .btn:hover {
+            background-color: #E5E1DA; /* Light background on hover */
+            color: #0D4C92; /* Dark blue text color on hover */
+        }
+
         /* Ensure navbar toggler is not pushing content */
         .navbar-toggler {
             border: none; /* Remove border */
