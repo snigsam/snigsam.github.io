@@ -21,12 +21,13 @@
         .header-title {
             text-align: center;
             color: #FFFFFF; /* White text for contrast */
-            background-color: rgba(13, 76, 146, 0.4) /* Transparent dark blue */
+            background-color: rgba(9, 12, 47, 0.8); /* Semi-colon added here */
             margin: 0 auto; /* Center the title box */
             width: 60%; /* Width as per your annotation */
             padding: 20px;
             border-radius: 0; /* No rounded corners */
         }
+
 
         /* Navbar styles */
         .navbar-custom {
@@ -89,7 +90,7 @@
             padding-right: 5%; /* Adjust the percentage as needed */
         }
         .highlight {
-            background-color: #C6FCE5;
+            background-color: green;
         }
 
        /* Adjustments for responsive behavior */
@@ -143,7 +144,7 @@
                 <a class="nav-item nav-link" href="contact.html">Contact</a>
                 <!-- Search form -->
                 <form class="form-inline my-2 my-lg-0" onsubmit="return performSearch()">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                    <input class="form-control mr-sm-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
@@ -179,51 +180,43 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-    // Function to wrap selected text in a span with a specific class
-    function highlightText(root, searchText) {
-        if (!searchText) {
-            return;
-        }
-
-        const walk = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
-        const highlightSpan = document.createElement('span');
-        highlightSpan.classList.add('highlight');
-        let node;
-
-        while (node = walk.nextNode()) {
-            const nodeText = node.nodeValue;
-            const searchTextIndex = nodeText.toLowerCase().indexOf(searchText.toLowerCase());
-
-            if (searchTextIndex >= 0) {
-                const highlightedNode = node.splitText(searchTextIndex);
-                highlightedNode.splitText(searchText.length);
-                const highlightedClone = highlightSpan.cloneNode(false);
-                highlightedClone.appendChild(highlightedNode.cloneNode(true));
-                highlightedNode.parentNode.replaceChild(highlightedClone, highlightedNode);
-            }
-        }
-    }
-
-    // Function to clear all highlights
+    // Function to remove all highlights
     function clearHighlights() {
-        document.querySelectorAll('.highlight').forEach(function(highlight) {
-            const parent = highlight.parentNode;
-            parent.replaceChild(highlight.firstChild, highlight);
+        const highlighted = document.querySelectorAll('.highlight');
+        highlighted.forEach((span) => {
+            const parent = span.parentNode;
+            parent.replaceChild(document.createTextNode(span.textContent), span);
             parent.normalize(); // Merges adjacent text nodes
         });
     }
 
-    function performSearch() {
-        clearHighlights(); // Clear existing highlights
+    // Function to highlight search text
+    function highlightText(searchText) {
+        clearHighlights(); // Clear previous highlights
 
-        const searchText = document.getElementById('searchInput').value;
-        if (searchText) {
-            highlightText(document.body, searchText);
+        if (!searchText) {
+            return;
         }
 
-        return false; // To prevent form submission
+        const regex = new RegExp(searchText, 'gi');
+        const bodyText = document.body.innerHTML;
+
+        const newHtml = bodyText.replace(regex, (match) => `<span class="highlight">${match}</span>`);
+        document.body.innerHTML = newHtml;
+    }
+
+    // Search function
+    function performSearch() {
+        const searchText = document.getElementById('searchInput').value.trim();
+
+        if (searchText) {
+            highlightText(searchText);
+        }
+
+        return false; // Prevent form submission
     }
 </script>
+
 
     
 <script>
