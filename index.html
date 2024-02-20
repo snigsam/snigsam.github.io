@@ -21,8 +21,9 @@
         .header-title {
             text-align: center;
             color: #ffffff;
-            background-color: rgba(0, 51, 102, 0.7); /* Deep blue background with opacity */
-            display: inline-block;
+            background-color: #004d40; /* Dark teal blue background */
+            display: block; /* Use block to allow centering with margin */
+            margin: 0 auto; /* Center the title box */
             padding: 10px 20px;
             border-radius: 10px; /* Optional: if you want rounded corners */
         }
@@ -50,7 +51,9 @@
         }
 
         /* Rest of your styles... */
-
+        .navbar {
+            background-color: #004d40; /* Dark teal blue background for the navbar */
+        }
         /* Add responsive adjustments if necessary */
         @media screen and (max-width: 768px) {
             .profile-section {
@@ -74,8 +77,9 @@
 </div>
 
 <!-- Bootstrap Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #004d40;">
     <div class="container">
+        <a class="navbar-brand text-white" href="#">Snigdha Samantaray</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
