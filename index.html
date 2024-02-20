@@ -82,94 +82,75 @@
             text-align: left;
         }
     
+        /* CSS for Desktops remains unchanged */
+
         @media screen and (max-width: 768px) {
+            /* Mobile-specific Styles */
             
             .header-image {
-                /* Adjusted for mobile view */
-                height: auto;
+                height: 25vh; /* Adjusted for mobile view */
             }
         
             .header-image img {
-                /* Ensure the image covers the header */
                 width: 100%;
-                height: auto;
+                height: 100%;
                 object-fit: cover;
             }
         
-            .title-box {
-                /* Position the title box inside the header */
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 100%;
-                padding: 0;
-            }
-        
+            /* Hide the title-background in mobile view and replace it with title in navbar */
             .title-background {
-                /* Adjust transparency and ensure it fits within the header */
-                background-color: rgba(0, 0, 0, 0.7);
-                color: white;
-                padding: 10px 0;
-                margin: 0 auto;
-                box-sizing: border-box;
+                display: none;
             }
         
-            .title-background h1,
-            .title-background h2 {
-                /* Adjust the font size for mobile view */
-                font-size: 5vw;
-                margin: 0;
+            /* Mobile Navbar styles */
+            .title-navbar-container {
+                display: flex;
+                justify-content: space-between; /* Title on the left, menu icon on the right */
+                align-items: center;
+                background-color: #333; /* Match the navbar color */
+                padding: 10px; /* Adjust padding as needed */
             }
         
+            .title-container {
+                display: none; /* Hide the separate title container on mobile */
+            }
+        
+            /* Adjust the navbar for mobile view */
             .navbar {
-                /* Position the navbar below the header without overlapping */
-                position: relative;
-                top: 0;
-                width: 100%;
-                z-index: 15;
-            }
-        
-            .navbar a {
-                display: none; /* Hide all links initially */
+                width: 100%; /* Full width */
+                background-color: #333;
+                padding: 10px 0; /* Adjust padding as needed */
             }
         
             .navbar a.icon {
-                /* Ensure the icon is displayed and clickable */
-                display: block;
-                position: absolute;
-                top: 0;
-                right: 0;
+                display: block; /* Show the menu icon */
+                position: relative;
                 padding: 14px;
+                margin-left: auto; /* Push the icon to the right */
             }
         
             .navbar.responsive a {
-                /* Show the links when the navbar is responsive */
-                display: block;
+                display: block; /* Show the links when navbar is responsive */
                 width: 100%;
-                padding: 14px 16px;
                 text-align: center;
+                padding: 14px 16px;
             }
         
+            /* Ensure the main content is stacked */
             .main-content {
-                /* Stack the content vertically */
-                flex-direction: column;
-                align-items: center;
-                padding: 20px;
+                flex-direction: column; /* Stack children vertically */
+                align-items: center; /* Center-align children */
             }
         
             .profile-image,
             .profile-text {
-                /* Ensure full width for mobile */
-                width: 100%;
-                padding: 10px 0;
+                width: 100%; /* Full width for mobile */
             }
         
             .profile-image img {
-                /* Adjust the profile image size */
-                max-width: 80%;
-                height: auto;
-                margin-bottom: 20px;
+                max-width: 100%; /* Full width for the image */
+                height: auto; /* Maintain aspect ratio */
+                margin-bottom: 20px; /* Add space below the image */
             }
         }
     </style>
