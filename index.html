@@ -35,6 +35,13 @@
             justify-content: space-between; /* Space out navbar items */
             padding: 0 15%; /* Space on the left and right */
         }
+        /* Ensure the navbar brand, toggler, and collapse are aligned inline */
+        .navbar-brand,
+        .navbar-toggler,
+        .navbar-collapse {
+            flex-grow: 0; /* Prevents them from taking up more space than necessary */
+        }
+
 
         /* Style for unclicked navbar links */
         .navbar-custom .navbar-nav .nav-link {
@@ -64,7 +71,7 @@
         /* Style for the search button and form */
         .navbar .form-inline {
             display: flex;
-            align-items: center; /* This ensures vertical alignment */
+            justify-content: flex-end;  /* This ensures vertical alignment */
         }
         
         .navbar .form-inline .form-control {
@@ -110,6 +117,10 @@
 
             .navbar-nav {
                 justify-content: space-around;
+            }
+                    
+            .navbar .form-inline .form-control {
+                width: auto; /* Allows the input to size according to its content */
             }
 
             .navbar-toggler {
