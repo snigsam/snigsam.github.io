@@ -86,17 +86,14 @@
             .header-image {
                 position: relative;
                 width: 100%;
-                height: 25vh; /* Adjusted for landscape mode */
+                height: 200px; /* Height adjusted for mobile */
                 overflow: hidden;
             }
         
             .header-image img {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: auto;
+                width: 100%;
                 height: 100%;
-                transform: translate(-50%, -50%);
+                object-fit: cover;
             }
         
             .title-box {
@@ -104,33 +101,34 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: 90%; /* Provide some padding */
-                text-align: center;
+                width: 100%; /* Take up full header width */
+                padding: 0; /* Remove padding */
             }
         
             .title-background {
-                background-color: rgba(0, 0, 0, 0.5);
+                display: inline-block;
+                background-color: rgba(0, 0, 0, 0.75); /* Make background darker for better readability */
                 color: white;
-                padding: 10px;
+                width: 100%; /* Full width */
+                padding: 10px 0; /* Padding top and bottom */
                 box-sizing: border-box;
             }
         
             .title-background h1,
             .title-background h2 {
-                font-size: 4vw; /* Adjust font size for landscape mode */
-                margin: 0;
+                font-size: 5vw; /* Adjust font size based on viewport width */
+                padding: 0; /* Remove padding */
+                margin: 0; /* Remove margin */
             }
         
             .navbar {
                 background-color: #333;
-                position: relative;
-                z-index: 10;
-                padding: 0;
-                text-align: center;
+                overflow: hidden;
+                position: relative; /* Ensures navbar is positioned correctly */
             }
         
-            .navbar a:not(:first-child), .navbar a.icon {
-                display: none;
+            .navbar a {
+                display: none; /* Hide all navbar links initially */
             }
         
             .navbar a.icon {
@@ -146,19 +144,15 @@
                 position: relative;
             }
         
+            .navbar.responsive a.icon {
+                position: relative;
+            }
+        
             .navbar.responsive a {
-                display: block;
+                display: block; /* Show the links when navbar is responsive */
+                width: 100%;
+                padding: 14px 16px;
                 text-align: center;
-                width: 100%;
-            }
-        
-            .main-content {
-                flex-direction: column;
-                padding: 1em;
-            }
-        
-            .profile-image, .profile-text {
-                width: 100%;
             }
         }
     </style>
