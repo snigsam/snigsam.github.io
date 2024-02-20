@@ -28,35 +28,54 @@
             border-radius: 0; /* No rounded corners */
         }
 
-
+        
         /* Navbar styles */
         .navbar-custom {
             background-color: #090c2f; /* Dark teal blue */
-            justify-content: space-between; /* Space out navbar items */
-            padding: 0 15%; /* Space on the left and right */
+            justify-content: center; /* Center navbar items */
+            padding: 0; /* Remove padding */
         }
         
-        /* Style for unclicked navbar links */
-        .navbar-custom .navbar-nav .nav-link {
-            color: #FBF9F1; /* Light text color */
-            background-color: #090c2f; /* Dark blue background */
+        /* Ensuring that navbar links are equidistant and centered */
+        .navbar-nav {
+            display: flex;
+            width: 100%;
+            justify-content: center; /* Center items */
+            flex-wrap: wrap; /* Allow items to wrap if necessary */
         }
         
-        /* Style for hovered navbar links */
-        .navbar-custom .navbar-nav .nav-link:hover {
-            color: #090c2f; /* Dark blue text color on hover */
-            background-color: #FBF9F1; /* Light background on hover */
+        /* Style for the search button and form */
+        .navbar .form-inline {
+            display: flex;
+            justify-content: flex-end; /* Aligns the search form to the right */
+            flex-grow: 0; /* Prevents the search form from taking up unnecessary space */
         }
         
-        /* Style for active (clicked) navbar link */
-        .navbar-custom .navbar-nav .nav-link.active {
-            color: #090c2f; /* Dark blue text for active link */
-            background-color: #E5E1DA; /* Light background for active link */
+        /* Ensure the search form is not adding extra space */
+        .navbar .form-inline .form-control,
+        .navbar .form-inline .btn {
+            margin-left: 0.5em; /* Adjust spacing between navbar items and search input */
         }
         
-        /* Highlight style for search */
-        .highlight {
-            background-color: #87fa7d; /* Green background for highlights */
+        /* Ensure navbar toggler is not pushing content */
+        .navbar-toggler {
+            border: none; /* Remove border */
+            padding: 0; /* Remove padding */
+        }
+        
+        /* Remove any specific left or right margins on navbar items */
+        .navbar-nav .nav-item {
+            margin-right: 0;
+            margin-left: 0;
+        }
+        /* Navbar toggle icon for a light-colored version */
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        
+        /* Navbar toggler when expanded */
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
         }
 
 
@@ -72,10 +91,10 @@
             }
                 
             .navbar .form-inline {
-                width: 100%; /* Full width for mobile */
-                justify-content: center; /* Center the search form on mobile */
+                justify-content: center; /* Center search form on smaller screens */
+                width: 100%; /* Full width */
+                margin-top: 0.5em; /* Add a little space above the search form on mobile */
             }
-            
             .navbar .form-inline .form-control,
             .navbar .form-inline .btn {
                 width: 100%; /* Full width for search input and button on mobile */
