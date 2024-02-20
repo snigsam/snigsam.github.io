@@ -86,7 +86,7 @@
             .header-image {
                 position: relative;
                 width: 100%;
-                height: 200px; /* Fixed height for mobile header */
+                height: 25vh; /* Adjusted for landscape mode */
                 overflow: hidden;
             }
         
@@ -101,32 +101,36 @@
         
             .title-box {
                 position: absolute;
-                top: 50%; /* Center vertically */
-                left: 50%; /* Center horizontally */
+                top: 50%;
+                left: 50%;
                 transform: translate(-50%, -50%);
-                width: 100%;
+                width: 90%; /* Provide some padding */
                 text-align: center;
             }
         
             .title-background {
-                display: inline-block;
-                background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+                background-color: rgba(0, 0, 0, 0.5);
                 color: white;
-                padding: 0.5em 1em;
-                margin: 0;
+                padding: 10px;
                 box-sizing: border-box;
             }
         
             .title-background h1,
             .title-background h2 {
-                font-size: 5vw; /* Responsive font size */
+                font-size: 4vw; /* Adjust font size for landscape mode */
                 margin: 0;
             }
         
             .navbar {
                 background-color: #333;
                 position: relative;
-                z-index: 10; /* Ensure the navbar is above the title box */
+                z-index: 10;
+                padding: 0;
+                text-align: center;
+            }
+        
+            .navbar a:not(:first-child), .navbar a.icon {
+                display: none;
             }
         
             .navbar a.icon {
@@ -135,16 +139,16 @@
                 top: 0;
                 right: 0;
                 padding: 14px;
-                z-index: 15; /* Ensure the dropdown icon is above everything else */
+                z-index: 15;
             }
         
-            .navbar.responsive .icon {
+            .navbar.responsive {
                 position: relative;
             }
         
             .navbar.responsive a {
-                text-align: center;
                 display: block;
+                text-align: center;
                 width: 100%;
             }
         
@@ -153,8 +157,7 @@
                 padding: 1em;
             }
         
-            .profile-image,
-            .profile-text {
+            .profile-image, .profile-text {
                 width: 100%;
             }
         }
@@ -206,11 +209,11 @@
 
 <script>
     function toggleNavbar() {
-        var navbar = document.getElementById("myNavbar");
-        if (navbar.className === "navbar") {
-            navbar.className += " responsive";
+        var x = document.getElementById("myNavbar");
+        if (x.className === "navbar") {
+            x.className += " responsive";
         } else {
-            navbar.className = "navbar";
+            x.className = "navbar";
         }
     }
 </script>
