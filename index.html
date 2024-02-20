@@ -112,19 +112,21 @@
             }
 
             .navbar-custom {
-                padding: 0 5%; /* Less padding on mobile */
+                flex-wrap: wrap; /* Allow navbar items to wrap onto the next line */
             }
-
-            .navbar-nav {
-                justify-content: space-around;
+            
+            .navbar-custom .navbar-collapse {
+                flex-basis: 100%; /* Take full width of the navbar */
+                justify-content: space-between; /* Distribute space between navbar items */
             }
-                    
-            .navbar .form-inline .form-control {
-                width: auto; /* Allows the input to size according to its content */
+            
+            .navbar-custom .form-inline {
+                width: 100%; /* Full width for search form on smaller screens */
+                order: 1; /* Ensure search form is below the navbar items */
             }
-
+            
             .navbar-toggler {
-                background-color: #E5E1DA; /* Light color for the toggle icon */
+                order: 2; /* Ensure toggler is last */
             }
         }
     </style>
