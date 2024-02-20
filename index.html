@@ -83,6 +83,7 @@
         }
     
         @media screen and (max-width: 768px) {
+            
             .header-image {
                 position: relative;
                 width: 100%;
@@ -145,6 +146,24 @@
                 width: 100%;
                 padding: 14px 16px;
                 text-align: center;
+            }
+            .main-content {
+                flex-direction: column; /* Stack children vertically */
+                align-items: center; /* Center-align children */
+                padding: 20px; /* Add some padding */
+            }
+        
+            .profile-image,
+            .profile-text {
+                width: 100%; /* Full width for mobile */
+                padding: 10px 0; /* Vertical padding */
+            }
+        
+            /* Adjustments to the profile image size if necessary */
+            .profile-image img {
+                max-width: 80%; /* Adjust the width as needed */
+                height: auto; /* Maintain aspect ratio */
+                margin-bottom: 20px; /* Add space below the image */
             }
         }
     </style>
