@@ -21,31 +21,37 @@
         .header-title {
             text-align: center;
             color: #FFFFFF; /* White text for contrast */
-            background-color: #0D4C92; /* Dark blue background */
-            display: inline-block; /* Allows for tighter control on left and right */
-            padding: 10px 20px;
-            border-radius: 10px; /* Optional: rounded corners */
-            width: fit-content; /* Adjust width to content */
+            background-color: rgba(13, 76, 146, 0.4); /* Transparent dark blue */
             margin: 0 auto; /* Center the title box */
+            width: 60%; /* Width as per your annotation */
+            padding: 20px;
+            border-radius: 0; /* No rounded corners */
         }
 
         /* Navbar styles */
         .navbar-custom {
-            background-color: #0D4C92; /* Dark blue background */
-            padding-left: 10%; /* Space on the left */
-            padding-right: 10%; /* Space on the right */
+            background-color: #0D4C92; /* Dark teal blue */
+            justify-content: space-between; /* Space out navbar items */
+            padding: 0 15%; /* Space on the left and right */
         }
 
         .navbar-custom .navbar-nav .nav-link {
-            color: #FBF9F1; /* Off-white text */
+            color: #FBF9F1; /* Off-white text for better contrast */
+            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
         }
-
+        
         .navbar-custom .navbar-nav .nav-link:hover,
         .navbar-custom .navbar-nav .active > .nav-link {
-            background-color: #E5E1DA; /* Light gray for active state */
+            color: #0D4C92; /* Classic Blue text for hover/active state */
+            background-color: #E5E1DA; /* Moon Beam for background */
+            transition: background-color 0.3s ease-in-out; /* Smooth transition for background color change */
         }
-
-        /* Adjustments for responsive behavior */
+        /* Navbar toggle icon */
+        .navbar-toggler {
+            border: none;
+            background-color: #E5E1DA; /* Lighter color for the toggle icon */
+        }
+       /* Adjustments for responsive behavior */
         @media screen and (max-width: 768px) {
             .header-content {
                 padding: 60px 0; /* Less padding on smaller screens */
@@ -53,20 +59,19 @@
 
             .header-title {
                 font-size: smaller; /* Smaller font size on mobile devices */
+                width: 80%; /* Increase width for mobile */
+            }
+
+            .navbar-custom {
+                padding: 0 5%; /* Less padding on mobile */
+            }
+
+            .navbar-nav {
+                justify-content: space-around;
             }
 
             .navbar-toggler {
-                color: #FBF9F1; /* White icon for the toggler */
-            }
-            
-            .navbar-collapse {
-                margin: 0 auto;
-            }
-            
-            .navbar-nav {
-                flex-direction: row;
-                justify-content: space-around;
-                width: 100%;
+                background-color: #F0F0F0; /* Light color for the toggle icon */
             }
         }
     </style>
@@ -86,7 +91,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <!-- Nav items go here -->
                 <li class="nav-item active"><a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
@@ -99,9 +104,9 @@
                 <!-- Add more nav items as needed -->
             </ul>
         </div>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
 </nav>
