@@ -84,40 +84,67 @@
         
         @media screen and (max-width: 768px) {
             .header-image {
+                position: relative;
+                width: 100%; /* Full width */
+                height: auto; /* Height is auto to maintain aspect ratio */
+            }
+    
+            .header-image img {
+                width: 100%;
                 height: auto;
             }
-        
-            .title-background {
-                position: static;
-                width: 100%;
+    
+            .title-box {
+                position: absolute;
+                top: 100%; /* Position the title-box right below the header image */
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%; /* Full width */
+                background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
             }
-        
-            .navbar a:not(:first-child) {
-                display: none;
+    
+            .title-background h1,
+            .title-background h2 {
+                font-size: 5vw; /* Responsive font size based on viewport width */
+                margin: 0.5em 0; /* Margin for top and bottom */
             }
-        
-            .navbar a.icon {
-                display: block;
+    
+            .navbar {
+                background-color: #333;
+                padding: 0;
+                text-align: center;
+            }
+    
+            .navbar.responsive { 
+                position: relative;
+            }
+    
+            .navbar a:not(:first-child), 
+            .navbar.responsive a {
+                display: none; /* Hide all links initially */
+            }
+    
+            .navbar.responsive a.icon {
+                display: block; /* Show the hamburger icon */
                 position: absolute;
                 right: 10px;
                 top: 10px;
             }
-        
-            .navbar.responsive {
-                position: relative;
-            }
-        
+    
             .navbar.responsive a {
+                float: none;
                 display: block;
-                width: 100%;
+                text-align: center;
             }
-        
+    
             .main-content {
                 flex-direction: column;
+                padding: 1em;
             }
-        
-            .profile-image, .profile-text {
-                width: 100%;
+    
+            .profile-image,
+            .profile-text {
+                width: 100%; /* Full width for mobile */
             }
         }
     </style>
