@@ -85,85 +85,91 @@
         @media screen and (max-width: 768px) {
             
             .header-image {
-                position: relative;
-                width: 100%;
-                height: 25vh; /* Adjust based on your design preference */
+                /* Adjusted for mobile view */
+                height: auto;
             }
         
             .header-image img {
+                /* Ensure the image covers the header */
                 width: 100%;
-                height: 100%;
+                height: auto;
                 object-fit: cover;
             }
         
             .title-box {
+                /* Position the title box inside the header */
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 width: 100%;
+                padding: 0;
             }
         
             .title-background {
-                display: block; /* Use block to take the full width */
-                background-color: rgba(0, 0, 0, 0.75); /* Adjust transparency as needed */
+                /* Adjust transparency and ensure it fits within the header */
+                background-color: rgba(0, 0, 0, 0.7);
                 color: white;
-                text-align: center;
                 padding: 10px 0;
-                margin: 0 auto; /* Center the title box */
+                margin: 0 auto;
                 box-sizing: border-box;
             }
         
             .title-background h1,
             .title-background h2 {
-                font-size: 6vw; /* Adjust font size for better fit */
-                margin: 0; /* Remove margin to prevent extra space */
+                /* Adjust the font size for mobile view */
+                font-size: 5vw;
+                margin: 0;
             }
         
             .navbar {
-                background-color: #333;
-                overflow: hidden;
+                /* Position the navbar below the header without overlapping */
                 position: relative;
-                top: -1px; /* This will make the navbar touch the header */
-                width: 100%; /* Ensure the navbar takes full width */
-                z-index: 15; /* Ensures the navbar is above the header image */
+                top: 0;
+                width: 100%;
+                z-index: 15;
             }
         
-            .navbar a:not(:first-child) {
+            .navbar a {
                 display: none; /* Hide all links initially */
             }
         
             .navbar a.icon {
+                /* Ensure the icon is displayed and clickable */
                 display: block;
-                position: relative; /* Make sure the icon is part of the flow */
-                padding: 14px;
-                right: 0;
+                position: absolute;
                 top: 0;
+                right: 0;
+                padding: 14px;
             }
         
             .navbar.responsive a {
-                display: block; /* Show the links when navbar is responsive */
+                /* Show the links when the navbar is responsive */
+                display: block;
                 width: 100%;
                 padding: 14px 16px;
                 text-align: center;
             }
+        
             .main-content {
-                flex-direction: column; /* Stack children vertically */
-                align-items: center; /* Center-align children */
-                padding: 20px; /* Add some padding */
+                /* Stack the content vertically */
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
             }
         
             .profile-image,
             .profile-text {
-                width: 100%; /* Full width for mobile */
-                padding: 10px 0; /* Vertical padding */
+                /* Ensure full width for mobile */
+                width: 100%;
+                padding: 10px 0;
             }
         
-            /* Adjustments to the profile image size if necessary */
             .profile-image img {
-                max-width: 80%; /* Adjust the width as needed */
-                height: auto; /* Maintain aspect ratio */
-                margin-bottom: 20px; /* Add space below the image */
+                /* Adjust the profile image size */
+                max-width: 80%;
+                height: auto;
+                margin-bottom: 20px;
             }
         }
     </style>
