@@ -86,8 +86,7 @@
             .header-image {
                 position: relative;
                 width: 100%;
-                height: 200px; /* Height adjusted for mobile */
-                overflow: hidden;
+                height: 25vh; /* Adjust based on your design preference */
             }
         
             .header-image img {
@@ -101,51 +100,44 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: 100%; /* Take up full header width */
-                padding: 0; /* Remove padding */
+                width: 100%;
             }
         
             .title-background {
-                display: inline-block;
-                background-color: rgba(0, 0, 0, 0.75); /* Make background darker for better readability */
+                display: block; /* Use block to take the full width */
+                background-color: rgba(0, 0, 0, 0.75); /* Adjust transparency as needed */
                 color: white;
-                width: 100%; /* Full width */
-                padding: 10px 0; /* Padding top and bottom */
+                text-align: center;
+                padding: 10px 0;
+                margin: 0 auto; /* Center the title box */
                 box-sizing: border-box;
             }
         
             .title-background h1,
             .title-background h2 {
-                font-size: 5vw; /* Adjust font size based on viewport width */
-                padding: 0; /* Remove padding */
-                margin: 0; /* Remove margin */
+                font-size: 6vw; /* Adjust font size for better fit */
+                margin: 0; /* Remove margin to prevent extra space */
             }
         
             .navbar {
                 background-color: #333;
                 overflow: hidden;
-                position: relative; /* Ensures navbar is positioned correctly */
+                position: relative;
+                top: -1px; /* This will make the navbar touch the header */
+                width: 100%; /* Ensure the navbar takes full width */
+                z-index: 15; /* Ensures the navbar is above the header image */
             }
         
-            .navbar a {
-                display: none; /* Hide all navbar links initially */
+            .navbar a:not(:first-child) {
+                display: none; /* Hide all links initially */
             }
         
             .navbar a.icon {
                 display: block;
-                position: absolute;
-                top: 0;
-                right: 0;
+                position: relative; /* Make sure the icon is part of the flow */
                 padding: 14px;
-                z-index: 15;
-            }
-        
-            .navbar.responsive {
-                position: relative;
-            }
-        
-            .navbar.responsive a.icon {
-                position: relative;
+                right: 0;
+                top: 0;
             }
         
             .navbar.responsive a {
@@ -180,7 +172,7 @@
     <a href="posts.html">Posts</a>
     <a href="useful-links.html">Useful Links</a>
     <a href="photos.html">Photos</a>
-    /* <a href="contact.html">Contact</a> */
+    <a href="contact.html">Contact</a>
 </div>
 
 <div class="main-content">
