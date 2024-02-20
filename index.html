@@ -67,37 +67,37 @@
             width: 100%;
             justify-content: space-around; /* This will distribute space evenly around items */
         }
+                
+        /* Navbar styles */
+        .navbar-custom {
+            background-color: #090c2f; /* Dark teal blue */
+            justify-content: space-between; /* Space out navbar items */
+            padding: 0 15%; /* Space on the left and right */
+        }
         
-        /* Style for the search button and form */
+        .navbar-brand,
+        .navbar-toggler,
+        .navbar-collapse {
+            flex-grow: 0; /* Prevents them from taking up more space than necessary */
+        }
+        
+        /* Adjust the search form to fit in the navbar */
         .navbar .form-inline {
-            display: flex;
-            justify-content: flex-end;  /* This ensures vertical alignment */
+            flex-grow: 1; /* Allows the search form to grow as needed */
+            justify-content: flex-end; /* Aligns the search form to the right */
         }
         
-        .navbar .form-inline .form-control {
-            margin-right: 0.5em; /* Adjust spacing between input and button */
-        }
-        
+        .navbar .form-inline .form-control,
         .navbar .form-inline .btn {
-            background-color: #090c2f; /* Dark blue background for button */
-            color: #FBF9F1; /* Light text color */
+            height: 38px; /* Set a fixed height to match the navbar height */
+            padding: .375rem .75rem; /* Bootstrap's default padding */
         }
         
-        .navbar .form-inline .btn:hover {
-            background-color: #E5E1DA; /* Light background on hover */
-            color: #090c2f; /* Dark blue text color on hover */
-        }
-
-        /* Navbar toggle icon */
-        .navbar-toggler-icon {
-            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox=\'0 0 30 30\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath stroke=\'rgba(13, 76, 146, 1)\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' d=\'M4 7h22M4 15h22M4 23h22\'/%3E%3C/svg%3E');
-        }
-        .custom-padding {
-            padding-left: 5%;  /* Adjust the percentage as needed */
-            padding-right: 5%; /* Adjust the percentage as needed */
-        }
-        .highlight {
-            background-color: green;
+        /* Adjust the navbar-nav to ensure it is in line */
+        .navbar-nav {
+            align-items: center; /* Align nav items vertically */
+            flex-grow: 1; /* Allow navbar-nav to take up the available space */
+            flex-basis: auto; /* Adjust the base size as needed */
         }
 
        /* Adjustments for responsive behavior */
@@ -110,24 +110,33 @@
                 font-size: smaller; /* Smaller font size on mobile devices */
                 width: 80%; /* Increase width for mobile */
             }
-
+        
+            .navbar .form-inline {
+                width: 100%; /* Full width for mobile */
+            }
+            
+            .navbar .form-inline .form-control {
+                flex-grow: 1; /* Allow the search input to grow */
+            }
+            
+            .navbar .form-inline .btn {
+                flex-shrink: 0; /* Prevent the button from shrinking */
+            }
+            
             .navbar-custom {
-                flex-wrap: wrap; /* Allow navbar items to wrap onto the next line */
+                flex-wrap: wrap; /* Allow navbar items to wrap onto the next line on small screens */
             }
             
-            .navbar-custom .navbar-collapse {
-                flex-basis: 100%; /* Take full width of the navbar */
-                justify-content: space-between; /* Distribute space between navbar items */
-            }
-            
-            .navbar-custom .form-inline {
-                width: 100%; /* Full width for search form on smaller screens */
-                order: 1; /* Ensure search form is below the navbar items */
+            .navbar-nav {
+                justify-content: flex-start; /* Align nav items to the start */
+                margin-top: .5rem; /* Add some margin above the nav on mobile */
+                width: 100%; /* Full width for mobile */
             }
             
             .navbar-toggler {
-                order: 2; /* Ensure toggler is last */
+                margin-bottom: .5rem; /* Add some margin below the toggler on mobile */
             }
+        }
         }
     </style>
 </head>
