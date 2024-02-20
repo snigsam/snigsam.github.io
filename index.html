@@ -24,7 +24,7 @@
             background-color: rgba(9, 12, 47, 0.8); /* Semi-colon added here */
             margin: 0 auto; /* Center the title box */
             width: 60%; /* Width as per your annotation */
-            padding: 20px;
+            padding: 5px;
             border-radius: 0; /* No rounded corners */
         }
 
@@ -181,41 +181,44 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-    // Function to remove all highlights
     function clearHighlights() {
         const highlighted = document.querySelectorAll('.highlight');
         highlighted.forEach((span) => {
-            const parent = span.parentNode;
-            parent.replaceChild(document.createTextNode(span.textContent), span);
-            parent.normalize(); // Merges adjacent text nodes
+            span.outerHTML = span.innerHTML; // Removes the span but leaves its content intact
         });
     }
-
-    // Function to highlight search text
-    function highlightText(searchText) {
-        clearHighlights(); // Clear previous highlights
-
-        if (!searchText) {
-            return;
+    
+    function highlightSearchTerm(searchTerm) {
+        clearHighlights();
+    
+        if (!searchTerm) return;
+    
+        if (window.find && window.getSelection) {
+            const selection = window.getSelection();
+    
+            // Start at the beginning of the document
+            selection.collapse(document.body, 0);
+    
+            while (window.find(searchTerm)) {
+                const range = selection.getRangeAt(0);
+                const highlightSpan = document.createElement('span');
+                highlightSpan.className = 'highlight';
+                range.surroundContents(highlightSpan);
+    
+                // Move past the current match
+                selection.collapseToEnd();
+            }
+        } else {
+            alert('Your browser does not support this search feature.');
         }
-
-        const regex = new RegExp(searchText, 'gi');
-        const bodyText = document.body.innerHTML;
-
-        const newHtml = bodyText.replace(regex, (match) => `<span class="highlight">${match}</span>`);
-        document.body.innerHTML = newHtml;
     }
-
-    // Search function
+    
     function performSearch() {
         const searchText = document.getElementById('searchInput').value.trim();
-
-        if (searchText) {
-            highlightText(searchText);
-        }
-
-        return false; // Prevent form submission
+        highlightSearchTerm(searchText);
+        return false; // Prevent default form submission
     }
+
 </script>
 
 
