@@ -105,7 +105,7 @@
             }
 
             .navbar-toggler {
-                background-color: #0D4C92; /* Light color for the toggle icon */
+                background-color: #E5E1DA; /* Light color for the toggle icon */
             }
         }
     </style>
@@ -120,30 +120,30 @@
 </div>
 
 <!-- Bootstrap Navbar -->
-<nav class="navbar navbar-custom">
+<nav class="navbar navbar-custom navbar-expand-lg">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <!-- Nav items go here -->
-                <li class="nav-item active"><a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
-                <li class="nav-item active"><a class="nav-link" href="research.html">Research<span class="sr-only">(current)</span></a></li>
-                <li class="nav-item active"><a class="nav-link" href="work-experience.html">Work Experience<span class="sr-only">(current)</span></a></li>
-                <li class="nav-item active"><a class="nav-link" href="cv.html">CV<span class="sr-only">(current)</span></a></li>
-                <li class="nav-item active"><a class="nav-link" href="posts.html">Posts<span class="sr-only">(current)</span></a></li>
-                <li class="nav-item active"><a class="nav-link" href="photos.html">Photos<span class="sr-only">(current)</span></a></li>
-                <li class="nav-item active"><a class="nav-link" href="contact.html">Contact<span class="sr-only">(current)</span></a></li>
-                <!-- Add more nav items as needed -->
-            </ul>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link active" href="index.html">Home</a>
+                <a class="nav-item nav-link" href="research.html">Research</a>
+                <a class="nav-item nav-link" href="work-experience.html">Work Experience</a>
+                <a class="nav-item nav-link" href="cv.html">CV</a>
+                <a class="nav-item nav-link" href="posts.html">Posts</a>
+                <a class="nav-item nav-link" href="photos.html">Photos</a>
+                <a class="nav-item nav-link" href="contact.html">Contact</a>
+                <!-- Search form -->
+                <form class="form-inline my-2 my-lg-0" onsubmit="return performSearch()">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
         </div>
-        <form class="d-flex" onsubmit="return performSearch()">
-            <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
     </div>
 </nav>
+
 
 <!-- Main Content with Profile Picture and Text -->
 <div class="container mt-4">
@@ -173,27 +173,23 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
     function performSearch() {
-        // Get the search input value
-        var searchText = document.getElementById('searchInput').value.toLowerCase();
-        // If searchText is not empty, perform the search
+        var searchText = document.getElementById('searchInput').value;
         if (searchText) {
-            // Get the page content
-            var content = document.body.textContent || document.body.innerText;
-            var matchIndex = content.toLowerCase().indexOf(searchText);
-            
-            // If match found, scroll to it and highlight if desired
-            if (matchIndex >= 0) { 
-                // Scroll to the position of the first match
-                // window.scrollTo(0, matchIndex); // This might not work as expected for complex HTML structures
-
-                // Highlight the searched term. Implementation depends on your needs.
-
+            if (window.find && window.getSelection) {
+                document.designMode = "on";
+                var sel = window.getSelection();
+                sel.collapse(document.body, 0);
+                
+                while (window.find(searchText)) {
+                    document.execCommand("HiliteColor", false, "A0E4CB");
+                    sel.collapseToEnd();
+                }
+                
+                document.designMode = "off";
             } else {
-                // If no match found, alert the user
-                alert('No matches found');
+                alert('Your browser does not support this search functionality.');
             }
         }
-        // Prevent the form from submitting traditionally
         return false;
     }
 </script>
