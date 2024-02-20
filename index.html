@@ -225,7 +225,10 @@
                 const searchText = document.getElementById('searchInput').value.trim();
                 if (searchText) {
                     // Mark the new search text
-                    markInstance.mark(searchText);
+                    markInstance.mark(searchText,{
+                     "element": "span",
+                    "className": "highlight
+                    });
                 }
             }
         });
