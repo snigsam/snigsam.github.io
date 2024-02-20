@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5dc; /* Warm beige background */
+            background-color: #FBF9F1; 
         }
 
         .header-content {
@@ -21,14 +21,15 @@
         .header-title {
             text-align: center;
             color: #FFFFFF; /* White text */
-            background-color: #34558b; /* Pantone Classic Blue */
-            display: inline-block; /* Allows for tighter control on left and right */
+            background-color: #0D4C92;
+            display: block; /* Changed to block for centering with margin */
             padding: 10px 20px;
             border-radius: 0px; /* Optional: if you want rounded corners */
+            width: fit-content; /* Adjust width to content */
         }
 
         .profile-section {
-            background-color: #BAA892; /* Pantone Moonbeam */
+            background-color: #FBF9F1;
             padding: 30px;
             display: flex;
             align-items: center;
@@ -51,18 +52,21 @@
 
         /* Rest of your styles... */
         .navbar {
-            background-color: #34558b; /* Pantone Classic Blue */
+            background-color: #0D4C92; /* Pantone Classic Blue */
             text-align: center;
         }
         .navbar-nav {
-            display: inline-block;
-            float: none;
-            vertical-align: top;
+            justify-content: center;
+            width: 100%;
         }
-        .navbar .navbar-collapse {
-            text-align: center;
+        /* This ensures the navbar-collapse container is full width */
+        .navbar-collapse {
+            flex-grow: 1;
+            justify-content: center;
         }
-        
+        .navbar .navbar-toggler {
+            margin-right: 0; /* Align the toggler to the edges */
+        }
         .nav-item {
             display: inline-block;
         }
@@ -111,7 +115,6 @@
 <!-- Bootstrap Navbar -->
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand text-white" href="#">Snigdha Samantaray</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
