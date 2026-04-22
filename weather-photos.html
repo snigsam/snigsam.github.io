@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snigdha Samantaray | PhD Student in Atmospheric Science</title>
+  <meta name="description" content="Snigdha Samantaray is a PhD student in Meteorology and Physical Oceanography at the University of Miami studying convection, moisture organization, and vapor lakes." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div class="brand">Snigdha Samantaray</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="cv2026_snigdha.pdf">CV</a>
+        <a href="weather-photos.html" class="active">Photos</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+<main class="container">
+  <section class="hero">
+    <h1>Weather Photography</h1>
+
+    <div class="slideshow-container">
+      <div class="slide fade">
+        <img src="images/cloudphoto1.jpg" alt="Photo 1">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto2.jpg" alt="Photo 2">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto3.jpg" alt="Photo 3">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto4.jpg" alt="Photo 4">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto5.jpg" alt="Photo 5">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto6.jpg" alt="Photo 6">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto7.jpg" alt="Photo 7">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto8.jpg" alt="Photo 8">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto9.jpg" alt="Photo 9">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto10.jpg" alt="Photo 10">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto11.jpg" alt="Photo 11">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto12.jpg" alt="Photo 12">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto13.jpg" alt="Photo 13">
+      </div>
+
+      <div class="slide fade">
+        <img src="images/cloudphoto14.jpg" alt="Photo 14">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+  </section>
+</main>
+<footer>
+<div class="container">
+    &copy; 2026 Snigdha Samantaray
+</div>
+</footer>
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function showSlides(n) {
+    const slides = document.getElementsByClassName("slide");
+
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+  }
+</script>
+</body>
+</html>

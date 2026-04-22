@@ -1,111 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Snigdha Samantaray</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snigdha Samantaray | PhD Student in Atmospheric Science</title>
+  <meta name="description" content="Snigdha Samantaray is a PhD student in Meteorology and Physical Oceanography at the University of Miami studying convection, moisture organization, and vapor lakes." />
 
-    <style>
-        body {
-            max-width: 800px;
-            margin: 40px auto;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #222;
-        }
-
-        h1 {
-            margin-bottom: 5px;
-        }
-
-        nav {
-            margin-bottom: 30px;
-        }
-
-        nav a {
-            margin-right: 15px;
-            text-decoration: none;
-            color: #0056b3;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        img {
-            width: 140px;
-            border-radius: 4px;
-            float: right;
-            margin-left: 20px;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        .small {
-            color: #666;
-        }
-    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <div class="brand-block">
+        <div class="brand">Snigdha Samantaray</div> 
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="cv2026_snigdha.pdf">CV</a>
+        <a href="weather-photos.html">Photos</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+<main>
+  <section class="hero">
+    <div class="container">
 
-<h1>Snigdha Samantaray</h1>
-<p class="small">PhD Student, Atmospheric Science · University of Miami</p>
+      <div class="intro-head">
+        <div class="intro-name-block">
+          <h1 class="intro-name">Snigdha Samantaray</h1>
+        </div>
+        <div class="intro-role-block">
+        </div>
+      </div>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#cv">CV</a>
-    <a href="#contact">Contact</a>
-</nav>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <img src="images/headshot_snigdha.jpg" alt="Portrait of Snigdha Samantaray">
+          <p class="photo-credit">Photo © 2026</p>
+        </div>
 
-<section id="about">
-    <img src="images/profile.jpg" alt="profile">
+        <div>
+          <p class="entry-meta">
+            I am a Ph.D. student in Meteorology and Physical Oceanography at the Rosenstiel School of Marine, Atmospheric, and Earth Science, University of Miami. I work with Dr. Brian Mapes on understanding the dynamics of precipitating high column water vapor (CWV) “vapor lakes” in the Western Indian Ocean using observations and numerical models, motivated by challenges in representing moisture–convection coupling in climate models.
+          </p>
 
-    <p>
-        I work on tropical convection, moisture organization, and the dynamics of
-        high column water vapor (“vapor lakes”) in the Western Equatorial Indian Ocean.
-        My research focuses on understanding how these systems persist and propagate,
-        using reanalysis data and Lagrangian frameworks.
-    </p>
-</section>
+          <p class="entry-meta">
+            More broadly, I am interested in tropical convection, moisture organization, and its interaction with large scale circulation. This includes understanding moisture circulation feedbacks across scales, from convective processes to phenomena such as the MJO and ITCZ, and how these are represented in models.
+          </p>
 
-<section id="research">
-    <h2>Research</h2>
+          <p class="entry-meta">
+            Previously, at IISER Pune, I used CloudSat observations to estimate bulk entrainment in tropical deep convective clouds, focusing on how convective mixing influences cloud structure and its representation in models.
+          </p>
 
-    <p>
-        My current work examines the spatial relationship between precipitation and
-        column water vapor, with a focus on persistent high-CWV regions.
-    </p>
+          <!-- <div class="hero-actions">
+            <a class="btn btn-primary" href="research.html">Research</a>
+            <a class="btn" href="cv2026_snigdha.pdf">CV</a>
+          </div> -->
+        </div>
+      </div>
 
-    <ul>
-        <li>
-            Lagrangian motion and moisture budget of vapor lakes
-        </li>
-        <li>
-            Role of horizontal vs vertical advection at the lake margin
-        </li>
-        <li>
-            Interaction with East African rainfall
-        </li>
-    </ul>
-</section>
+    </div>
+  </section>
+</main>
 
-<section id="cv">
-    <h2>CV</h2>
-    <p>
-        <a href="cv.pdf">Download CV (PDF)</a>
-    </p>
-</section>
+  <footer>
+    <div class="container">
+      &copy; 2026 Snigdha Samantaray
+    </div>
+  </footer>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>
-        Email: your_email@miami.edu <br>
-        GitHub: <a href="https://github.com/snigsam">snigsam</a>
-    </p>
-</section>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("loaded");
 
+      const reveals = document.querySelectorAll(".reveal");
+
+      const revealOnScroll = () => {
+        reveals.forEach((el) => {
+          const top = el.getBoundingClientRect().top;
+          if (top < window.innerHeight - 70) {
+            el.classList.add("active");
+          }
+        });
+      };
+
+      revealOnScroll();
+      window.addEventListener("scroll", revealOnScroll);
+    });
+  </script>
 </body>
 </html>
